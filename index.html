@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Neighbourhood Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="contain">
+        <div class="options-box">
+            <H1 class="text-center">Know Your Delhi</H1>
+            <div id="error" class="alert alert-danger" data-bind="text: error, visible: showError"></div>
+            <article>
+                <input id="show-marks" class="btn btn-info" type="button" value="Show Marks" data-bind="click: showMarks">
+                <input id="hide-marks" type="button" class="btn btn-info" value="Hide Marks" data-bind="click: hideMarks"><br><br><hr>
+            </article>
+            <artical>
+                <h3 class="text-center"> List of places</h3>
+                <input type="search" class="searchBox" placeholder="Type here to find your place" data-bind="value: query, valueUpdate: 'keyup'">
+                <div class="List">
+                    <ul data-bind="foreach: list">
+                        <li class="list-items" data-bind="text: title, click: pointMarker"></li>
+                    </ul>
+                </div>
+                <div id="List" data-bind="visible: showList">
+                    <ul class="items" data-bind="foreach: locations">
+                        <li class="list-items" data-bind="text: title, click: pointMarker"></li>
+                    </ul>
+                </div>
+            </artical>
+
+        </div>
+        <div id="map"></div>
+    </div>
+    <footer>
+    <script src="js/lib/knockout-3.2.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRBbOThOqmVCioYXGJldkgIqwNrC1cjNE&v=3&callback=initMap" onerror="googleapiError()"></script>
+    </footer>
+
+</body>
+</html>
