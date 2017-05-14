@@ -16,8 +16,8 @@ It is a single page application which shows useful information about your city.
 
 ## Project Details
 
-This Application shows the useful information about certain places in Delhi.
-You will get the information about the place by clicking on the marker.
+* This Application shows the useful information about certain places in Delhi.
+* You will get the information about the place by clicking on the marker.
 
 
 ## Instructions to run the Project
