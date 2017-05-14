@@ -1,0 +1,86 @@
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.contain {
+  height: 100%;
+  position: relative;
+}
+
+input {
+  font-size: 12px;
+}
+
+h1,h3 {
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0 0 10px 0;
+}
+
+#List {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.searchBox{
+  padding-right :200px;
+}
+
+.list-items:hover {
+      background-color: #02B3E4;
+    }
+
+hr {
+  background: #D0D7D9;
+  height: 3px;
+  margin: 20px 0 20px 0;
+  border: none;
+}
+
+#map {
+  position: absolute;
+  bottom:0px;
+  height: 100%;
+  left: 362px;
+  right: 0px;
+}
+
+.options-box {
+  background: #fff;
+  border: 1px solid #999;
+  border-radius: 3px;
+  height: 100%;
+  line-height: 35px;
+  padding: 10px 10px 30px 10px;
+  text-align: left;
+  width: 340px;
+  margin-left: 10px;
+}
+
+#hide-marks,
+#show-marks {
+  width: 48%;
+}
+
+ul{
+  list-style-type: none;
+}
+
+@media only screen and (max-width: 750px) {
+    #map {
+        left:0%;
+        top: 35%;
+        margin-top: 325px;
+    }
+    .searchBox{
+        width :98%;
+    }
+    .options-box {
+        height: 500px;
+        width: 100%;
+        transition: transform 0.3s ease;
+        overflow-y: scroll;
+    }
+}
