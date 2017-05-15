@@ -78,7 +78,7 @@ function initMap() {
     var defaultIcon = changeMarker('ff3300');
     var changedIcon = changeMarker('ffff00');
 
-    // The following group uses the location array to create an array of markers on initialize.
+    // Creating arrray of markers.
     for (var i = 0; i < locations.length; i++) {
         var marker = new google.maps.Marker({
             position: locations[i].location,
@@ -91,7 +91,7 @@ function initMap() {
         markers.push(marker);
         showMarks();
 
-        //adding event Listeners to markers
+        //Implementing listeners on the markers
         marker.addListener('mouseover', function() {
             this.setIcon(changedIcon);
         });
@@ -106,7 +106,7 @@ function initMap() {
     }
 }
 
-//function to change the marker
+//Changing the marker
 function changeMarker(colour) {
     var markerImage = new google.maps.MarkerImage(
         'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + colour +
@@ -139,7 +139,7 @@ function populateInfoWindow(marker, infowindow) {
     }
 }
 
-//function to open infoWindow if marker is clicked
+//function to open infoWindow on "onclick" marker
 function pointMarker(mark) {
     if (infoWindow.marker != mark.location) {
         for (var i = 0; i < markers.length; i++) {
@@ -161,7 +161,7 @@ function bounceMarker(marker) {
 }
 
 
-//show markers
+//function to show markers
 function showMarks(){
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < markers.length; i++) {
@@ -173,14 +173,14 @@ function showMarks(){
     });
 }
 
-//hide markers
+//function to hide markers
 function hideMarks(){
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
 }
 
-//function for fetching wikipedia resources using ajax
+//fetching wikipedia for showing the info of Delhi city
 function fetchInfo(marker){
     var wikiUrl = 'https://en.wikipedia.org/w/api.php';
     wikiUrl += '?' + $.param({
@@ -211,15 +211,15 @@ function fetchInfo(marker){
         },
         error: function(data,status,string){
             viewModel.showError(true);
-            viewModel.error('failed to get wikipedia resources');
+            viewModel.error('Sorry, wikipedia resources not available');
         }
     });
 }
 
-// shows error if google map api is no correctly fetched
+// if google map api is not correctly fetched,then error message
 googleapiError = () => {
     viewModel.showError(true);
-    viewModel.error('Sorry! Maps not able to load');
+    viewModel.error('Error loading maps');
 };
 
 
